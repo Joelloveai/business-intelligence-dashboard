@@ -14,7 +14,6 @@ st.sidebar.header("Filters")
 start = st.sidebar.date_input("Start date", value=pd.to_datetime(fallback_start).date())
 end = st.sidebar.date_input("End date", value=pd.to_datetime(fallback_end).date())
 
-# Load data
 df = pd.read_csv("data/sales.csv", parse_dates=["date"])
 mask = (df["date"] >= pd.to_datetime(start)) & (df["date"] <= pd.to_datetime(end))
 df_filtered = df[mask]
@@ -23,7 +22,6 @@ if df_filtered.empty:
     st.warning("No data for selected period. Check CSV file.")
     st.stop()
 
-# Monthly aggregation
 df_filtered["month"] = df_filtered["date"].dt.to_period("M").dt.start_time
 monthly = df_filtered.groupby("month").agg(
     revenue=("revenue", "sum"),
@@ -32,14 +30,12 @@ monthly = df_filtered.groupby("month").agg(
 monthly["aov"] = monthly["revenue"] / monthly["orders"]
 monthly["customers"] = monthly["orders"]
 
-# KPIs
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Total Revenue", f"RM {monthly['revenue'].sum():,.0f}")
 c2.metric("Total Orders", f"{monthly['orders'].sum():,}")
 c3.metric("Customers", f"{monthly['customers'].sum():,}")
 c4.metric("Average Order Value", f"RM {monthly['aov'].mean():,.2f}")
 
-# Charts
 col1, col2 = st.columns((3, 2))
 with col1:
     fig_line = px.line(monthly, x="month", y="revenue", title="Monthly Revenue")
@@ -54,7 +50,6 @@ top_products = df_filtered.groupby("product")["revenue"].sum().reset_index().nla
 fig_bar = px.bar(top_products, x="revenue", y="product", orientation='h', title="Top Products by Revenue")
 st.plotly_chart(fig_bar, use_container_width=True)
 
-# Forecast
 st.header("Forecasts")
 try:
     df_prophet = monthly[["month", "revenue"]].rename(columns={"month": "ds", "revenue": "y"})
