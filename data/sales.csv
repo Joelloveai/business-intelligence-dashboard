@@ -1,0 +1,23 @@
+date,revenue,orders,channel,product
+2024-01-31,12500,62,Facebook,Widget A
+2024-02-29,11800,58,Google,Widget B
+2024-03-31,13200,66,Email,Widget A
+2024-04-30,14100,72,Facebook,Widget C
+2024-05-31,15800,81,Google,Widget A
+2024-06-30,16200,85,Email,Widget B
+2024-07-31,14900,78,Facebook,Widget A
+2024-08-31,17100,91,Google,Widget C
+2024-09-30,18300,98,Email,Widget A
+2024-10-31,19200,105,Facebook,Widget B
+2024-11-30,18800,102,Google,Widget A
+2024-12-31,20500,115,Email,Widget C
+2025-01-31,19800,108,Facebook,Widget A
+2025-02-28,18900,99,Google,Widget B
+2025-03-31,21200,118,Email,Widget A
+2025-04-30,22800,125,Facebook,Widget C
+2025-05-31,24100,134,Google,Widget A
+2025-06-30,25300,142,Email,Widget B
+2025-07-31,23700,128,Facebook,Widget A
+2025-08-31,26200,148,Google,Widget C
+2025-09-30,27800,158,Email,Widget A
+2025-10-31,29100,165,Facebook,Widget B
