@@ -1,0 +1,16 @@
+/* style.css */
+.reportview-container .main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+h1 {
+    color: #1f77b4;
+    border-bottom: 2px solid #1f77b4;
+    padding-bottom: 0.5rem;
+}
+.stMetric {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
